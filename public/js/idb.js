@@ -16,7 +16,7 @@ request.onsuccess = function(event) {
     // when db is successfully created with its object store (from onupgradedneeded event above) or simply established a connection, save reference to db in global variable
     db = event.target.result;
 
-     // check if app is online, if yes run uploadPizza() function to send all local db data to api
+     // check if app is online, if yes run uploadTransaction() function to send all local db data to api
      if (navigator.onLine) {
       
         uploadTransaction();
@@ -34,7 +34,7 @@ request.onsuccess = function(event) {
         const transaction = db.transaction(['new_transaction'], 'readwrite');
       
         // access the object store for `new_pizza`
-        const budgetObjectStore = transaction.objectStore('new_tansaction');
+        const budgetObjectStore = transaction.objectStore('new_transaction');
       
         // add record to your store with add method
         budgetObjectStore.add(record);
