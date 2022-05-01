@@ -7,7 +7,7 @@ const request = indexedDB.open('budget_tracker', 1);
 request.onupgradeneeded = function(event) {
     // save a reference to the database 
     const db = event.target.result;
-    // create an object store (table) called `new_pizza`, set it to have an auto incrementing primary key of sorts 
+    // create an object store (table) called `new_transaction`, set it to have an auto incrementing primary key of sorts 
     db.createObjectStore('new_transaction', { autoIncrement: true });
   };
 
@@ -33,7 +33,7 @@ request.onsuccess = function(event) {
         // open a new transaction with the database with read and write permissions 
         const transaction = db.transaction(['new_transaction'], 'readwrite');
       
-        // access the object store for `new_pizza`
+        // access the object store for `new_transaction`
         const budgetObjectStore = transaction.objectStore('new_transaction');
       
         // add record to your store with add method
